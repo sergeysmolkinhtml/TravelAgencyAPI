@@ -26,6 +26,11 @@ class Travel extends Model
         'number_of_days',
     ];
 
+    /*public function getRouteKeyName() : string
+    {
+        return 'slug';
+    }*/
+
     public function tours() : HasMany
     {
         return $this->hasMany(Tour::class);
