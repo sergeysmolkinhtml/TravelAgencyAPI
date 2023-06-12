@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Tour;
+use App\Models\Travel;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,6 +11,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class TourFactory extends Factory
 {
+
+    protected $model = Tour::class;
     /**
      * Define the model's default state.
      *

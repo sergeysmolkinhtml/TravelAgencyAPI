@@ -25,7 +25,7 @@ class TourController extends Controller
                 $query->where('starting_date', '>=', $request->dateFrom);
             })
             ->when($request->dateTo, function ($query) use ($request) {
-                $query->where('starting_date', '<=', $request->dateTo);
+                $query->where('ending_date', '<=', $request->dateTo);
             })
             ->when($request->sortBy && $request->sortOrder, function ($query) use ($request) {
                 $query->orderBy($request->sortBy, $request->sortOrder);

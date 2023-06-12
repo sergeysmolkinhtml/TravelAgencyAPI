@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Travel;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class TravelFactory extends Factory
 {
+    protected $model = Travel::class;
     /**
      * Define the model's default state.
      *
