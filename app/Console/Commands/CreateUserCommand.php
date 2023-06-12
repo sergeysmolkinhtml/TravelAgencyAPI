@@ -6,6 +6,8 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rules\Password;
 
 class CreateUserCommand extends Command
 {
@@ -33,10 +35,24 @@ class CreateUserCommand extends Command
         $user['password'] = $this->secret('Password of the new user');
 
         $roleName = $this->choice('Role of the new user',['admin','editor'],1);
+
+        $validator = Validator::make($user,[
+            'name' => ['required','string','max:255'],
+            'email' => ['required','string','email','max:255', 'unique:'.User::class],
+            'password'=> ['required', Password::defaults()]
+        ]);
+
+        if($validator->fails()) {
+            foreach ($validator->errors()->all() as $error) {
+                $this->error($error);
+            }
+
+            return;
+        }
+
         $role = Role::where('name', $roleName)->first();
         if(! $role) {
             $this->error('Role not found');
-
             return;
         }
 
@@ -49,5 +65,6 @@ class CreateUserCommand extends Command
            $newUser->roles()->attach($role->id);
         });
 
+        $this->info('User' . $user['email' . 'created successfully']);
     }
 }
