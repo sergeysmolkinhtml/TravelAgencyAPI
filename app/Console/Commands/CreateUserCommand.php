@@ -34,15 +34,15 @@ class CreateUserCommand extends Command
         $user['email'] = $this->ask('Email of the new user');
         $user['password'] = $this->secret('Password of the new user');
 
-        $roleName = $this->choice('Role of the new user',['admin','editor'],1);
+        $roleName = $this->choice('Role of the new user', ['admin', 'editor'], 1);
 
-        $validator = Validator::make($user,[
-            'name' => ['required','string','max:255'],
-            'email' => ['required','string','email','max:255', 'unique:'.User::class],
-            'password'=> ['required', Password::defaults()]
+        $validator = Validator::make($user, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'password' => ['required', Password::defaults()],
         ]);
 
-        if($validator->fails()) {
+        if ($validator->fails()) {
             foreach ($validator->errors()->all() as $error) {
                 $this->error($error);
             }
@@ -51,20 +51,21 @@ class CreateUserCommand extends Command
         }
 
         $role = Role::where('name', $roleName)->first();
-        if(! $role) {
+        if (! $role) {
             $this->error('Role not found');
+
             return;
         }
 
-        DB::transaction(function () use ( $user ,$role){
-           $newUser = User::create([
-             'name' => $user['name'],
-             'email' => $user['email'],
-             'password' => bcrypt($user['password'])
-           ]);
-           $newUser->roles()->attach($role->id);
+        DB::transaction(function () use ($user, $role) {
+            $newUser = User::create([
+                'name' => $user['name'],
+                'email' => $user['email'],
+                'password' => bcrypt($user['password']),
+            ]);
+            $newUser->roles()->attach($role->id);
         });
 
-        $this->info('User' . $user['email' . 'created successfully']);
+        $this->info('User'.$user['email'.'created successfully']);
     }
 }

@@ -8,10 +8,9 @@ use App\Http\Resources\TourResource;
 use App\Models\Travel;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
-
 class TourController extends Controller
 {
-    public function index(Travel $travel, ToursListRequest $request) : AnonymousResourceCollection
+    public function index(Travel $travel, ToursListRequest $request): AnonymousResourceCollection
     {
 
         $tours = $travel->tours()
@@ -36,5 +35,4 @@ class TourController extends Controller
         return TourResource::collection($tours);
 
     }
-
 }

@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class TravelFactory extends Factory
 {
     protected $model = Travel::class;
+
     /**
      * Define the model's default state.
      *
@@ -22,7 +23,7 @@ class TravelFactory extends Factory
             'name' => fake()->text(20),
             'is_public' => fake()->boolean(),
             'description' => fake()->text(100),
-            'number_of_days' => rand(1,10),
+            'number_of_days' => rand(1, 10),
         ];
     }
 }

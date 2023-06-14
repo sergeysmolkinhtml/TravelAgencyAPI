@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use App\Models\Travel;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class TravelListTest extends TestCase
@@ -18,8 +17,8 @@ class TravelListTest extends TestCase
         $response = $this->get('/api/v1/travels');
 
         $response->assertStatus(200);
-        $response->assertJsonCount(15,'data');
-        $response->assertJsonPath('meta.last_page',2);
+        $response->assertJsonCount(15, 'data');
+        $response->assertJsonPath('meta.last_page', 2);
     }
 
     public function test_travels_list_shows_only_public_records(): void
@@ -30,7 +29,7 @@ class TravelListTest extends TestCase
         $response = $this->get('/api/v1/travels');
 
         $response->assertStatus(200);
-        $response->assertJsonCount(1,'data');
-        $response->assertJsonPath('data.0.name',$publicTravel->name);
+        $response->assertJsonCount(1, 'data');
+        $response->assertJsonPath('data.0.name', $publicTravel->name);
     }
 }

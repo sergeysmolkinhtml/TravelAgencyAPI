@@ -10,7 +10,7 @@ class ToursListRequest extends FormRequest
     /**
      * Determine if the user is authorized to make this request.
      */
-    public function authorize() : bool
+    public function authorize(): bool
     {
         return true;
     }
@@ -20,7 +20,7 @@ class ToursListRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
      */
-    public function rules() : array
+    public function rules(): array
     {
         return [
             'priceFrom' => 'numeric',
@@ -31,12 +31,12 @@ class ToursListRequest extends FormRequest
             'sortOrder' => Rule::in(['asc', 'desc']),
         ];
     }
-    public function messages() : array
+
+    public function messages(): array
     {
         return [
             'sortBy' => "The 'sortBy' parameter accepts only 'price value'",
             'sortOrder' => "The 'sortOrder' parameter accepts only 'asc' or 'desc' value'",
         ];
     }
-
 }

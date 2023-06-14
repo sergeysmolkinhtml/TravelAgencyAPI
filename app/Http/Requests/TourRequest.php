@@ -23,9 +23,9 @@ class TourRequest extends FormRequest
     {
         return [
             'name' => ['required'],
-            'starting_date' => ['required','date'],
-            'ending_date' => ['required','date','after:starting_date'],
-            'price' => ['required','numeric'],
+            'starting_date' => ['required', 'date'],
+            'ending_date' => ['required', 'date', 'after:starting_date'],
+            'price' => ['required', 'numeric'],
         ];
     }
 }

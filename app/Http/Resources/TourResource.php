@@ -4,7 +4,9 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
-
+/**
+ * @mixin \App\Models\Tour
+ */
 class TourResource extends JsonResource
 {
     /**
@@ -19,7 +21,7 @@ class TourResource extends JsonResource
             'name' => $this->name,
             'starting_date' => $this->starting_date,
             'ending_date' => $this->ending_date,
-            'price' => number_format($this->price,2),
+            'price' => number_format($this->price, 2),
         ];
     }
 }
