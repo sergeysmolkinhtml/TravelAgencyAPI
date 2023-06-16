@@ -1,0 +1,73 @@
+name: Endpoints
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/admin/travels/{travel_id}/tours'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      travel_id:
+        name: travel_id
+        description: 'The ID of the travel.'
+        required: true
+        example: 995c2795-e8f7-4ff9-ab2a-5a6e0feb55bb
+        type: string
+        custom: []
+    cleanUrlParameters:
+      travel_id: 995c2795-e8f7-4ff9-ab2a-5a6e0feb55bb
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: eligendi
+        type: string
+        custom: []
+      starting_date:
+        name: starting_date
+        description: 'Must be a valid date.'
+        required: true
+        example: '2023-06-16T06:41:27'
+        type: string
+        custom: []
+      ending_date:
+        name: ending_date
+        description: 'Must be a valid date. Must be a date after <code>starting_date</code>.'
+        required: true
+        example: '2054-08-05'
+        type: string
+        custom: []
+      price:
+        name: price
+        description: ''
+        required: true
+        example: 34697.36516
+        type: number
+        custom: []
+    cleanBodyParameters:
+      name: eligendi
+      starting_date: '2023-06-16T06:41:27'
+      ending_date: '2054-08-05'
+      price: 34697.36516
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

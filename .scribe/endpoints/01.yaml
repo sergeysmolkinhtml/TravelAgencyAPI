@@ -1,0 +1,159 @@
+name: 'Admin endpoints'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/admin/travels
+    metadata:
+      groupName: 'Admin endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'POST Travel'
+      description: 'Creates a new Travel record.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      is_public:
+        name: is_public
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        custom: []
+      name:
+        name: name
+        description: ''
+        required: true
+        example: sed
+        type: string
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: true
+        example: et
+        type: string
+        custom: []
+      number_of_days:
+        name: number_of_days
+        description: ''
+        required: true
+        example: 14
+        type: integer
+        custom: []
+    cleanBodyParameters:
+      is_public: true
+      name: sed
+      description: et
+      number_of_days: 14
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"996a36ca-2693-4901-9c55-7136e68d81d5","name":"My new travel 234","slug":"my-new-travel-234", ...}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"message":"The name has already been taken.","errors":{"name":["The name has already been taken."]}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/v1/admin/travels/{travel_id}'
+    metadata:
+      groupName: 'Admin endpoints'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'PUT Travel'
+      description: 'Updates new Travel record.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      travel_id:
+        name: travel_id
+        description: 'The ID of the travel.'
+        required: true
+        example: 995c2795-e8f7-4ff9-ab2a-5a6e0feb55bb
+        type: string
+        custom: []
+    cleanUrlParameters:
+      travel_id: 995c2795-e8f7-4ff9-ab2a-5a6e0feb55bb
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      is_public:
+        name: is_public
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        custom: []
+      name:
+        name: name
+        description: ''
+        required: true
+        example: sequi
+        type: string
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: true
+        example: nisi
+        type: string
+        custom: []
+      number_of_days:
+        name: number_of_days
+        description: ''
+        required: true
+        example: 14
+        type: integer
+        custom: []
+    cleanBodyParameters:
+      is_public: true
+      name: sequi
+      description: nisi
+      number_of_days: 14
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":"996a36ca-2693-4901-9c55-7136e68d81d5","name":"My new travel 234", ...}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"message":"The name has already been taken.","errors":{"name":["The name has already been taken."]}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

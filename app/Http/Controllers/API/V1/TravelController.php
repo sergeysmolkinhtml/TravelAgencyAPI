@@ -7,6 +7,9 @@ use App\Http\Resources\TravelResourse;
 use App\Models\Travel;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
+/**
+ * @group Public endpoints
+ */
 class TravelController extends Controller
 {
     /**

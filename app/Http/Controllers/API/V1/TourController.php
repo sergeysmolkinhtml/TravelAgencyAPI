@@ -8,6 +8,9 @@ use App\Http\Resources\TourResource;
 use App\Models\Travel;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
+/**
+ * @group Public endpoints
+ */
 class TourController extends Controller
 {
     public function index(Travel $travel, ToursListRequest $request): AnonymousResourceCollection

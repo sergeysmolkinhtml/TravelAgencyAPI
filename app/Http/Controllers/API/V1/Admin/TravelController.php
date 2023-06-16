@@ -7,6 +7,9 @@ use App\Http\Requests\TravelRequest;
 use App\Http\Resources\TravelResourse;
 use App\Models\Travel;
 
+/**
+ * @group Admin endpoints
+ */
 class TravelController extends Controller
 {
     /**
